@@ -9,8 +9,8 @@
 }
 
 :root {
-  --pry-font: "Josefin Sans", sans-serif;
-  --sec-font: "Alata", sans-serif;
+  --pry-font: 'Josefin Sans', sans-serif;
+  --sec-font: 'Alata', sans-serif;
   --White: hsl(0, 0%, 100%);
   --Black: hsl(0, 0%, 0%);
   --Dark-Gray: hsl(0, 0%, 55%);
@@ -89,7 +89,7 @@ h2 {
 }
 
 #header-section::after {
-  content: "";
+  content: '';
   opacity: 0.5;
   position: absolute;
   top: 0;
@@ -101,75 +101,20 @@ h2 {
   z-index: -1;
 }
 
-#header-section .content {
+#header-section .nav-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   z-index: 10000;
   position: relative;
 }
 
-#header-section .content .toggle-menu {
-  position: absolute;
-  right: 1rem;
-  height: 100%;
-  top: -0.3rem;
-  display: flex;
-  align-items: center;
+#header-section .nav-section .nav-bar {
   cursor: pointer;
 }
 
-#header-section .content .menu-icon {
-  position: relative;
-  width: 1.625rem;
-  height: 0.125rem;
-  background-color: var(--White);
-  transition: background-color 0.2s ease-in;
-}
-
-#header-section .content .menu-icon::before, #header-section .content .menu-icon::after {
-  content: "";
-  position: absolute;
-  background-color: var(--White);
-  width: 100%;
-  height: 100%;
-  border-radius: 0.125rem;
-  transition: all 0.2s ease-in;
-}
-
-#header-section .content .menu-icon::before {
-  bottom: 6px;
-}
-
-#header-section .content .menu-icon::after {
-  top: 6px;
-}
-
-#header-section .content .nav-toggle {
-  display: none;
-}
-
-#header-section .content #nav-toggle:checked ~ nav {
-  opacity: 1;
-  visibility: visible;
-}
-
-#header-section .content #nav-toggle:checked ~ .toggle-menu .menu-icon {
-  background-color: transparent;
-}
-
-#header-section .content #nav-toggle:checked ~ .toggle-menu .menu-icon::before {
-  transform: rotate(-45deg);
-  top: 0;
-}
-
-#header-section .content #nav-toggle:checked ~ .toggle-menu .menu-icon::after {
-  transform: rotate(45deg);
-  top: 0;
-}
-
-#header-section .content .nav {
+#header-section .nav-section .nav {
   position: absolute;
   top: 0;
   left: 0;
@@ -185,22 +130,37 @@ h2 {
   transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
 }
 
-#header-section .content .nav .menu {
+#header-section .nav-section .nav .menu {
   padding-left: 1rem;
   z-index: 100;
   width: 100%;
 }
 
-#header-section .content .nav .menu li {
+#header-section .nav-section .nav .menu li {
   padding-bottom: 1.5rem;
 }
 
-#header-section .content .nav .menu a {
+#header-section .nav-section .nav .menu a {
   color: var(--White);
   font-family: var(--pry-font);
   text-transform: uppercase;
   font-size: 1.3rem;
   display: block;
+}
+
+#header-section .fixed {
+  position: fixed;
+  width: 100%;
+  z-index: 20000;
+  top: 0;
+  transform: translate(0, -300px);
+  transition: transform 0.3s ease-in;
+}
+
+#header-section .inView {
+  background: #000;
+  transform: translate(0, 0);
+  transition: all 0.3s ease-in;
 }
 
 #header-section .hero-title {
@@ -276,6 +236,7 @@ h2 {
 
 #section-b .content .creation {
   color: var(--White);
+  z-index: 1;
 }
 
 #section-b .content .creation .creation-img {
@@ -290,7 +251,7 @@ h2 {
 }
 
 #section-b .content .creation .creation-img::after {
-  content: "";
+  content: '';
   opacity: 0.5;
   height: 100%;
   width: 100%;
@@ -383,7 +344,7 @@ h2 {
 
 #footer-section .menu a::after,
 #footer-section .social-links a::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -497,7 +458,7 @@ h2 {
     position: relative;
   }
   #header-section .content .nav .menu a::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 0;

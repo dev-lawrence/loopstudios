@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -10,8 +10,8 @@
 }
 
 :root {
-  --pry-font: "Josefin Sans", sans-serif;
-  --sec-font: "Alata", sans-serif;
+  --pry-font: 'Josefin Sans', sans-serif;
+  --sec-font: 'Alata', sans-serif;
   --White: hsl(0, 0%, 100%);
   --Black: hsl(0, 0%, 0%);
   --Dark-Gray: hsl(0, 0%, 55%);
@@ -91,7 +91,7 @@ h2 {
   z-index: 10;
 
   &::after {
-    content: "";
+    content: '';
     opacity: 0.5;
     position: absolute;
     top: 0;
@@ -103,74 +103,17 @@ h2 {
     z-index: -1;
   }
 
-  .content {
+  .nav-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     z-index: 10000;
     position: relative;
 
-    //TOGGLE MENU
-    .toggle-menu {
-      position: absolute;
-      right: 1rem;
-      height: 100%;
-      top: -0.3rem;
-      display: flex;
-      align-items: center;
+    //NAV BAR
+    .nav-bar {
       cursor: pointer;
-    }
-
-    .menu-icon {
-      position: relative;
-      width: 1.625rem;
-      height: 0.125rem;
-      background-color: var(--White);
-      transition: background-color 0.2s ease-in;
-
-      &::before,
-      &::after {
-        content: "";
-        position: absolute;
-        background-color: var(--White);
-        width: 100%;
-        height: 100%;
-        border-radius: 0.125rem;
-        transition: all 0.2s ease-in;
-      }
-
-      &::before {
-        bottom: 6px;
-      }
-
-      &::after {
-        top: 6px;
-      }
-    }
-
-    //TOGGLE TRANSITION
-    .nav-toggle {
-      display: none;
-    }
-
-    #nav-toggle:checked ~ nav {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    #nav-toggle:checked ~ .toggle-menu .menu-icon {
-      background-color: transparent;
-    }
-
-    #nav-toggle:checked ~ .toggle-menu .menu-icon::before {
-      transform: rotate(-45deg);
-      top: 0;
-    }
-
-    #nav-toggle:checked ~ .toggle-menu .menu-icon::after {
-      transform: rotate(45deg);
-      top: 0;
     }
 
     //NAV MENU
@@ -207,6 +150,23 @@ h2 {
         }
       }
     }
+  }
+
+  //Scroll up
+  .fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 20000;
+    top: 0;
+    transform: translate(0, -300px);
+    transition: transform 0.3s ease-in;
+  }
+
+  //inView scroll
+  .inView {
+    background: #000;
+    transform: translate(0, 0);
+    transition: all 0.3s ease-in;
   }
 
   //HERO TITLE
@@ -285,6 +245,7 @@ h2 {
 
     .creation {
       color: var(--White);
+      z-index: 1;
 
       .creation-img {
         background-repeat: no-repeat;
@@ -297,7 +258,7 @@ h2 {
         cursor: pointer;
 
         &::after {
-          content: "";
+          content: '';
           opacity: 0.5;
           height: 100%;
           width: 100%;
@@ -396,7 +357,7 @@ h2 {
       position: relative;
 
       &::after {
-        content: "";
+        content: '';
         position: absolute;
         bottom: 0;
         left: 0;
@@ -542,7 +503,7 @@ h2 {
             position: relative;
 
             &::after {
-              content: "";
+              content: '';
               position: absolute;
               bottom: 0;
               left: 0;
