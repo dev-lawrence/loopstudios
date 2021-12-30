@@ -1,9 +1,20 @@
-//sticky header to top of the page
 const stickyHeader = document.querySelector('.nav-section');
-const logo = document.querySelector('.logo');
+const navBar = document.querySelector('.toggle');
+const navMenu = document.querySelector('.mobile-nav');
+const body = document.querySelector('body');
 //add event listener
 window.addEventListener('scroll', stickToTop);
+navBar.addEventListener('click', showMenu);
 
+//functions
+//show nav menu
+function showMenu() {
+  navBar.classList.toggle('active');
+  navMenu.classList.toggle('show');
+  body.classList.toggle('bodyMenu');
+}
+
+//sticky header to top of the page
 function stickToTop() {
   const stickOnScroll = window.scrollY;
 

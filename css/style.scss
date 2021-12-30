@@ -29,6 +29,13 @@ body {
   font-family: var(--pry-font);
 }
 
+//body menu
+// body.bodyMenu {
+//   overflow: hidden;
+//   height: 100%;
+//   width: 100%;
+// }
+
 /*CORE STYLES*/
 img {
   max-width: 100%;
@@ -45,11 +52,6 @@ span {
 ul,
 li {
   list-style: none;
-}
-
-:focus {
-  outline: 1px solid var(--White);
-  outline-offset: 0.5rem;
 }
 
 /*TYPOGRAPHY*/
@@ -108,48 +110,79 @@ h2 {
     align-items: center;
     justify-content: space-between;
     padding: 1.5rem 1rem;
-    z-index: 10000;
     position: relative;
+    z-index: 1000;
 
-    //NAV BAR
-    .nav-bar {
+    //TOGGLE MENU
+    .toggle {
+      background: url(../images/icon-hamburger.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 23px;
+      width: 25px;
+      height: 19px;
       cursor: pointer;
+      position: relative;
+      transform: rotate(0);
+      transition: transform 350ms ease-in;
+    }
+
+    .active {
+      background: url(../images/icon-close.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 20px;
+      transform: rotate(360deg);
     }
 
     //NAV MENU
     .nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: var(--Black);
-      height: 100vh;
-      width: 100%;
-      z-index: -1;
-      opacity: 0;
-      visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
-
-      .menu {
-        padding-left: 1rem;
-        z-index: 100;
-        width: 100%;
-
-        li {
-          padding-bottom: 1.5rem;
-        }
-
-        a {
-          color: var(--White);
-          font-family: var(--pry-font);
-          text-transform: uppercase;
-          font-size: 1.3rem;
-          display: block;
-        }
+      a {
+        color: #000;
       }
     }
+  }
+
+  //MOBILE NAV
+  .mobile-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
+
+    .menu {
+      padding-left: 1rem;
+
+      li {
+        padding: 0.5rem 0;
+      }
+
+      a {
+        color: #fff;
+        text-transform: uppercase;
+        font-family: var(--pry-font);
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  //DESKTOP NAV
+  .desktop-nav {
+    display: none;
+  }
+
+  //SHOW MENU
+  .show {
+    opacity: 1;
+    visibility: visible;
   }
 
   //Scroll up
