@@ -25,8 +25,6 @@
 body {
   -webkit-text-size-adjust: 100%;
   background-color: var(--White);
-  background: #74ebd5;
-  background: linear-gradient(to right, #acb6e5, #74ebd5);
   line-height: 1.6;
   font-family: var(--pry-font);
 }
@@ -89,7 +87,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 0;
+    padding: 1rem;
   }
 
   .menu-bar {
@@ -168,6 +166,7 @@ li {
   justify-content: center;
   position: relative;
   z-index: 10;
+  padding: 0 1rem;
 
   &::after {
     content: '';
@@ -423,7 +422,7 @@ li {
 
 @media (max-width: 20rem) {
   //HERO SECTION
-  #header-section {
+  #hero-section {
     .hero-title {
       h1 {
         font-size: var(--font-size-sm);
@@ -468,63 +467,18 @@ li {
 @media (min-width: 48rem) {
   .container {
     margin: 0 auto;
-    width: 47.5rem;
+    width: 45rem;
   }
   //HEADER SECTION
-  #header-section {
+  #hero-section {
     background: url(../images/desktop/image-hero.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    .content {
-      .toggle-menu {
-        display: none;
-      }
-
-      //DESKTOP NAV BAR
-      .nav {
-        opacity: 1;
-        visibility: visible;
-        background-color: transparent;
-        height: 100%;
-        top: -0.3rem;
-
-        .menu {
-          padding: 0 1rem 0 0;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          width: 100%;
-
-          li {
-            padding: 0 0 0 1.5rem;
-          }
-
-          li:hover a::after {
-            transform: scaleX(1);
-          }
-
-          a {
-            text-transform: capitalize;
-            font-weight: 500;
-            position: relative;
-
-            &::after {
-              content: '';
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              background-color: var(--White);
-              width: 100%;
-              height: 2px;
-              transform: scaleX(0);
-              transform-origin: center;
-              transition: transform 0.2s ease-in;
-            }
-          }
-        }
-      }
+    .text {
+      width: 70%;
+      max-width: 600px;
     }
   }
 
@@ -696,12 +650,74 @@ li {
 @media (min-width: 62rem) {
   .container {
     margin: 0 auto;
-    width: 60rem;
+    width: 920px;
   }
 
-  #header-section {
-    .hero-title {
-      max-width: 50%;
+  .nav {
+    .content {
+      padding: 2rem 0;
+    }
+
+    .menu-bar {
+      display: none;
+    }
+
+    .menu {
+      position: static;
+      background-color: transparent;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      li {
+        margin-bottom: 0;
+        margin-left: 2rem;
+      }
+
+      a {
+        text-transform: capitalize;
+        font-weight: 400;
+        font-size: 1rem;
+        color: var(--White);
+      }
+    }
+  }
+
+  li {
+    a {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: var(--White);
+        width: 100%;
+        height: 2px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.2s ease-in;
+      }
+    }
+  }
+
+  li:hover a::after {
+    transform: scaleX(1);
+  }
+
+  // active
+  .active {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: var(--White);
+      width: 100%;
+      height: 2px;
+      transform: scaleX(1);
+      transform-origin: center;
+      transition: transform 0.2s ease-in;
     }
   }
 

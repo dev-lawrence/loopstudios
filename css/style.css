@@ -24,8 +24,6 @@
 body {
   -webkit-text-size-adjust: 100%;
   background-color: var(--White);
-  background: #74ebd5;
-  background: linear-gradient(to right, #acb6e5, #74ebd5);
   line-height: 1.6;
   font-family: var(--pry-font);
 }
@@ -86,7 +84,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem;
 }
 
 .nav .menu-bar {
@@ -156,6 +154,7 @@ li a {
   justify-content: center;
   position: relative;
   z-index: 10;
+  padding: 0 1rem;
 }
 
 #hero-section::after {
@@ -398,7 +397,7 @@ li a {
 }
 
 @media (max-width: 20rem) {
-  #header-section .hero-title h1 {
+  #hero-section .hero-title h1 {
     font-size: var(--font-size-sm);
     line-height: 1.6;
   }
@@ -424,53 +423,17 @@ li a {
 @media (min-width: 48rem) {
   .container {
     margin: 0 auto;
-    width: 47.5rem;
+    width: 45rem;
   }
-  #header-section {
+  #hero-section {
     background: url(../images/desktop/image-hero.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #header-section .content .toggle-menu {
-    display: none;
-  }
-  #header-section .content .nav {
-    opacity: 1;
-    visibility: visible;
-    background-color: transparent;
-    height: 100%;
-    top: -0.3rem;
-  }
-  #header-section .content .nav .menu {
-    padding: 0 1rem 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 100%;
-  }
-  #header-section .content .nav .menu li {
-    padding: 0 0 0 1.5rem;
-  }
-  #header-section .content .nav .menu li:hover a::after {
-    transform: scaleX(1);
-  }
-  #header-section .content .nav .menu a {
-    text-transform: capitalize;
-    font-weight: 500;
-    position: relative;
-  }
-  #header-section .content .nav .menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: var(--White);
-    width: 100%;
-    height: 2px;
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform 0.2s ease-in;
+  #hero-section .text {
+    width: 70%;
+    max-width: 600px;
   }
   #section-a .grid {
     display: grid;
@@ -599,10 +562,59 @@ li a {
 @media (min-width: 62rem) {
   .container {
     margin: 0 auto;
-    width: 60rem;
+    width: 920px;
   }
-  #header-section .hero-title {
-    max-width: 50%;
+  .nav .content {
+    padding: 2rem 0;
+  }
+  .nav .menu-bar {
+    display: none;
+  }
+  .nav .menu {
+    position: static;
+    background-color: transparent;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .nav .menu li {
+    margin-bottom: 0;
+    margin-left: 2rem;
+  }
+  .nav .menu a {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--White);
+  }
+  li a {
+    position: relative;
+  }
+  li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--White);
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease-in;
+  }
+  li:hover a::after {
+    transform: scaleX(1);
+  }
+  .active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--White);
+    width: 100%;
+    height: 2px;
+    transform: scaleX(1);
+    transform-origin: center;
+    transition: transform 0.2s ease-in;
   }
   #section-a .content h2 {
     font-size: var(--fontsize-sm);
