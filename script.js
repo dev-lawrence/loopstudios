@@ -1,37 +1,43 @@
-const stickyHeader = document.querySelector('.nav-section');
-const navBar = document.querySelector('.toggle');
-const navMenu = document.querySelector('.mobile-nav');
-const body = document.querySelector('body');
-//add event listener
-window.addEventListener('scroll', stickToTop);
-navBar.addEventListener('click', showMenu);
+const nav = document.querySelector('.nav');
+const menuBar = document.querySelector('.menu-bar');
+const menu = document.querySelector('.menu');
+const menuLinks = menu.querySelectorAll('a');
 
-//functions
-//show nav menu
-function showMenu() {
-  navBar.classList.toggle('active');
-  navMenu.classList.toggle('show');
-  body.classList.toggle('bodyMenu');
-}
+//FUNCTIONS
 
-//sticky header to top of the page
-function stickToTop() {
-  const stickOnScroll = window.scrollY;
+// show bg color on scroll
+const showBgOnScroll = () => {
+  const scroll = window.scrollY;
 
-  //if the header is above the page
-  if (stickOnScroll > 0) {
-    stickyHeader.classList.add('fixed');
+  // logic
+  if (scroll > 200) {
+    nav.classList.add('showBg');
   }
 
-  //if header is below the page
+  // if it is less than 200
   else {
-    stickyHeader.classList.remove('fixed');
+    nav.classList.remove('showBg');
   }
+};
 
-  //show scroll on transition
-  if (stickOnScroll > 400) {
-    stickyHeader.classList.add('inView');
-  } else {
-    stickyHeader.classList.remove('inView');
-  }
-}
+//show nav menu on click
+const showMenu = () => {
+  menu.classList.toggle('showMenu');
+  let closeIcon = menuBar.querySelector('i');
+  closeIcon.classList.toggle('showMenu');
+};
+
+//add active class to menu links
+menuLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    let removeActiveClass = menu.querySelector('.active');
+    removeActiveClass.classList.remove('active');
+    link.classList.add('active');
+
+    showMenu();
+  });
+});
+
+// EVENT LISTENERS
+window.addEventListener('scroll', showBgOnScroll);
+menuBar.addEventListener('click', showMenu);

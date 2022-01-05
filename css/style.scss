@@ -25,16 +25,11 @@
 body {
   -webkit-text-size-adjust: 100%;
   background-color: var(--White);
+  background: #74ebd5;
+  background: linear-gradient(to right, #acb6e5, #74ebd5);
   line-height: 1.6;
   font-family: var(--pry-font);
 }
-
-//body menu
-// body.bodyMenu {
-//   overflow: hidden;
-//   height: 100%;
-//   width: 100%;
-// }
 
 /*CORE STYLES*/
 img {
@@ -82,13 +77,95 @@ h2 {
   }
 }
 
-/*HEADER SECTION*/
-#header-section {
+// HEADER SECTION
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 500;
+  transition: background-color 0.3s ease-in;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .menu-bar {
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 600;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding-left: 1rem;
+    transition: left 0.3s ease-in;
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-transform: uppercase;
+      font-family: var(--pry-font);
+      font-size: 1.3rem;
+    }
+  }
+}
+
+li {
+  a {
+    color: #fff;
+  }
+}
+
+// JS STYLES
+//show background color on scroll on navbar
+.nav.showBg {
+  background-color: #000;
+}
+
+//show menu on click
+.menu.showMenu {
+  left: 0;
+}
+
+//add close icon
+.menu-bar i.showMenu::before {
+  content: '\f00d';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+
+//active class
+.active {
+  color: orange;
+}
+
+// HERO SECTION
+#hero-section {
   min-height: 100vh;
   background: var(--Black) url(../images/mobile/image-hero.jpg);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   z-index: 10;
 
@@ -104,121 +181,19 @@ h2 {
     transition: background-color 0.3s ease-in-out;
     z-index: -1;
   }
+}
 
-  .nav-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 1rem;
-    position: relative;
-    z-index: 1000;
+//HERO TITLE
+.hero-title {
+  padding: 0;
+  width: 100%;
 
-    //TOGGLE MENU
-    .toggle {
-      background: url(../images/icon-hamburger.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 23px;
-      width: 25px;
-      height: 19px;
-      cursor: pointer;
-      position: relative;
-      transform: rotate(0);
-      transition: transform 350ms ease-in;
-    }
-
-    .active {
-      background: url(../images/icon-close.svg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 20px;
-      transform: rotate(360deg);
-    }
-
-    //NAV MENU
-    .nav {
-      a {
-        color: #000;
-      }
-    }
-  }
-
-  //MOBILE NAV
-  .mobile-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-    visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    transition: opacity 0.2s ease-in, visibility 0.2s ease-in;
-
-    .menu {
-      padding-left: 1rem;
-
-      li {
-        padding: 0.5rem 0;
-      }
-
-      a {
-        color: #fff;
-        text-transform: uppercase;
-        font-family: var(--pry-font);
-        font-size: 1.3rem;
-      }
-    }
-  }
-
-  //DESKTOP NAV
-  .desktop-nav {
-    display: none;
-  }
-
-  //SHOW MENU
-  .show {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  //Scroll up
-  .fixed {
-    position: fixed;
-    width: 100%;
-    z-index: 20000;
-    top: 0;
-    transform: translate(0, -300px);
-    transition: transform 0.3s ease-in;
-  }
-
-  //inView scroll
-  .inView {
-    background: #000;
-    transform: translate(0, 0);
-    transition: all 0.3s ease-in;
-  }
-
-  //HERO TITLE
-  .hero-title {
-    height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0;
-    width: 100%;
-    z-index: 999;
-
-    h1 {
-      color: var(--White);
-      font-size: clamp(2.5rem, calc(5vw + 1rem), 3.5rem);
-      line-height: 1.2;
-      padding: 1rem;
-      border: 2px solid var(--White);
-    }
+  h1 {
+    color: var(--White);
+    font-size: clamp(2.5rem, calc(5vw + 1rem), 3.5rem);
+    line-height: 1.2;
+    padding: 1rem;
+    border: 2px solid var(--White);
   }
 }
 
